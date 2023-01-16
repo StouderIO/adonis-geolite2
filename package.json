@@ -1,0 +1,136 @@
+{
+  "name": "@stouder-io/adonis-geolite2",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Xstoudi/adonis-geolite2#readme",
+  "main": "build/providers/Geolite2Provider.js",
+  "types": "build/adonis-typings/index.d.ts",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xstoudi/adonis-geolite2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Xstoudi/adonis-geolite2/issues"
+  },
+  "scripts": {
+    "mrm": "mrm --preset=@adonisjs/mrm-preset",
+    "pretest": "npm run lint",
+    "test": "node -r @adonisjs/require-ts/build/register bin/test.ts",
+    "clean": "del-cli build",
+    "compile": "npm run lint && npm run clean && tsc",
+    "build": "npm run compile",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint . --ext=.ts",
+    "format": "prettier --write .",
+    "commit": "git-cz",
+    "release": "np --message=\"chore(release): %s\"",
+    "version": "npm run build",
+    "sync-labels": "github-label-sync --labels ./node_modules/@adonisjs/mrm-preset/gh-labels.json Xstoudi/adonis-geolite2"
+  },
+  "keywords": [
+    "adonisjs",
+    "adonis",
+    "geolite2",
+    "maxmind",
+    "geolocation",
+    "ip",
+    "ip2location",
+    "ip2geo",
+    "ip2country",
+    "ip2city",
+    "ip2region",
+    "ip2isp",
+    "ip2asn"
+  ],
+  "author": "Xavier Stouder <xavier@stouder.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@adonisjs/core": "^5.9.0",
+    "@adonisjs/mrm-preset": "^5.0.3",
+    "@adonisjs/require-ts": "^2.0.13",
+    "@types/node": "^18.11.18",
+    "commitizen": "^4.2.6",
+    "cz-conventional-changelog": "^3.3.0",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-adonis": "^2.1.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "github-label-sync": "^2.2.0",
+    "husky": "^8.0.3",
+    "mrm": "^4.1.13",
+    "np": "^7.6.3",
+    "prettier": "^2.8.3",
+    "typescript": "^4.9.4"
+  },
+  "mrmConfig": {
+    "core": false,
+    "license": "MIT",
+    "services": [
+      "github-actions"
+    ],
+    "minNodeVersion": "16.13.1",
+    "probotApps": [
+      "stale"
+    ],
+    "runGhActionsOnWindows": false
+  },
+  "files": [
+    "build/src",
+    "build/providers",
+    "build/adonis-typings"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "plugin:adonis/typescriptPackage",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "build"
+  ],
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "printWidth": 100
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "np": {
+    "contents": ".",
+    "anyBranch": false
+  },
+  "dependencies": {
+    "geolite2-redist": "^3.0.4",
+    "maxmind": "^4.3.8"
+  },
+  "adonisjs": {
+    "types": "@stouder-io/adonis-geolite2",
+    "providers": [
+      "@stouder-io/adonis-geolite2"
+    ]
+  }
+}
