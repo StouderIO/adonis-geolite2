@@ -1,7 +1,7 @@
 declare module '@ioc:Adonis/Core/HttpContext' {
-  import { Geolite2Contract } from '@ioc:StouderIO/Geolite2'
+  import { GeoLite2Contract } from '@ioc:StouderIO/GeoLite2'
 
   interface HttpContextContract {
-    geolite2: Geolite2Contract
+    geolite2: GeoLite2Contract
   }
 }

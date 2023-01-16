@@ -1,8 +1,8 @@
 import maxmind, { Reader, CountryResponse, AsnResponse, CityResponse } from 'maxmind'
 import type { ApplicationContract } from '@ioc:Adonis/Core/Application'
-import type { Geolite2ManagerContract } from '@ioc:StouderIO/Geolite2'
+import type { GeoLite2ManagerContract } from '@ioc:StouderIO/GeoLite2'
 
-export default class Geolite2Manager implements Geolite2ManagerContract {
+export default class GeoLite2Manager implements GeoLite2ManagerContract {
   private countryReader: Reader<CountryResponse>
   private cityReader: Reader<CityResponse>
   private asnReader: Reader<AsnResponse>

@@ -1,7 +1,7 @@
-declare module '@ioc:StouderIO/Geolite2' {
+declare module '@ioc:StouderIO/GeoLite2' {
   import { AsnResponse, CityResponse, CountryResponse, Reader } from 'maxmind'
 
-  export interface Geolite2ManagerContract {
+  export interface GeoLite2ManagerContract {
     init(): Promise<void>
     close(): void
 
@@ -10,12 +10,12 @@ declare module '@ioc:StouderIO/Geolite2' {
     getAsnReader(): Reader<AsnResponse>
   }
 
-  export interface Geolite2Contract {
+  export interface GeoLite2Contract {
     country(ip?: string): CountryResponse | null
     city(ip?: string): CityResponse | null
     asn(ip?: string): AsnResponse | null
   }
 
-  const Geolite2Manager: Geolite2ManagerContract
-  export default Geolite2Manager
+  const GeoLite2Manager: GeoLite2ManagerContract
+  export default GeoLite2Manager
 }

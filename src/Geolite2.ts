@@ -1,8 +1,8 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { Geolite2Contract } from '@ioc:StouderIO/Geolite2'
+import { GeoLite2Contract } from '@ioc:StouderIO/GeoLite2'
 import { CountryResponse, CityResponse, AsnResponse, Reader } from 'maxmind'
 
-export class Geolite2 implements Geolite2Contract {
+export class GeoLite2 implements GeoLite2Contract {
   constructor(
     private ctx: HttpContextContract,
     private countryReader: Reader<CountryResponse>,

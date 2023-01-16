@@ -1,25 +1,25 @@
 import type { ApplicationContract } from '@ioc:Adonis/Core/Application'
-import { Geolite2 } from '../src/Geolite2'
-import Geolite2Manager from '../src/Geolite2Manager'
+import { GeoLite2 } from '../src/GeoLite2'
+import GeoLite2Manager from '../src/GeoLite2Manager'
 
-export default class Geolite2Provider {
+export default class GeoLite2Provider {
   constructor(protected app: ApplicationContract) {}
 
   public async register() {
-    this.app.container.singleton('StouderIO/Geolite2', () => {
-      return new Geolite2Manager(this.app)
+    this.app.container.singleton('StouderIO/GeoLite2', () => {
+      return new GeoLite2Manager(this.app)
     })
   }
 
   public async boot() {
-    const manager = this.app.container.resolveBinding('StouderIO/Geolite2')
+    const manager = this.app.container.resolveBinding('StouderIO/GeoLite2')
     await manager.init()
 
     const HttpContext = this.app.container.resolveBinding('Adonis/Core/HttpContext')
     HttpContext.getter(
       'geolite2',
       function () {
-        return new Geolite2(
+        return new GeoLite2(
           this,
           manager.getCountryReader(),
           manager.getCityReader(),
@@ -33,7 +33,7 @@ export default class Geolite2Provider {
   public async ready() {}
 
   public async shutdown() {
-    const manager = this.app.container.resolveBinding('StouderIO/Geolite2')
+    const manager = this.app.container.resolveBinding('StouderIO/GeoLite2')
     manager.close()
   }
 }
