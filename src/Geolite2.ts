@@ -10,26 +10,16 @@ export class GeoLite2 implements GeoLite2Contract {
     private asnReader: Reader<AsnResponse>
   ) {}
 
-  private get ip(): string {
-    return this.ctx.request.ip()
-  }
-
   public country(ip?: string): CountryResponse | null {
-    if (!ip) {
-      ip = this.ip
-    }
+    ip = ip || this.ctx.request.ip()
     return this.countryReader.get(ip)
   }
   public city(ip?: string): CityResponse | null {
-    if (!ip) {
-      ip = this.ip
-    }
+    ip = ip || this.ctx.request.ip()
     return this.cityReader.get(ip)
   }
   public asn(ip?: string): AsnResponse | null {
-    if (!ip) {
-      ip = this.ip
-    }
+    ip = ip || this.ctx.request.ip()
     return this.asnReader.get(ip)
   }
 }
