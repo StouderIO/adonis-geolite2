@@ -1,22 +1,23 @@
-# adonis-geolite2
-> Tagline
-
-[![github-actions-image]][github-actions-url] [![npm-image]][npm-url] [![license-image]][license-url] [![typescript-image]][typescript-url]
-
-A short brief
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/2575182/212580654-fdde40b5-418b-4b72-97b3-5a15a6328590.png" />
+  <h3>@stouder-io/adonis-geolite2</h3>
+  <p>Maxmind's GeoLite2 integration for Adonis</p>
+  <a href="https://www.npmjs.com/package/@stouder-io/adonis-geolite2">
+    <img src="https://img.shields.io/npm/v/@stouder-io/adonis-geolite2.svg?style=for-the-badge&logo=npm" />
+  </a>
+  <img src="https://img.shields.io/npm/l/@stouder-io/adonis-geolite2?color=blueviolet&style=for-the-badge" />
+  <img alt="npm" src="https://img.shields.io/npm/dt/@stouder-io/adonis-geolite2?style=for-the-badge">
+</div>
 
 ## Installation
+This package is available in the npm registry.
+```
+npm i @stouder-io/adonis-geolite2
+```
+
+Next, configure the package by running the following command.
+```
+node ace configure @stouder-io/adonis-geolite2
+```
 
 ## Usage
-
-[github-actions-image]: https://github.com/adonis-geolite2/actions/workflows/test.yml
-[github-actions-url]: https://img.shields.io/github/workflow/status/adonis-geolite2/test?style=for-the-badge "github-actions"
-
-[npm-image]: https://img.shields.io/npm/v/adonis-geolite2.svg?style=for-the-badge&logo=npm
-[npm-url]: https://npmjs.org/package/adonis-geolite2 "npm"
-
-[license-image]: https://img.shields.io/npm/l/adonis-geolite2?color=blueviolet&style=for-the-badge
-[license-url]: LICENSE.md "license"
-
-[typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
-[typescript-url]:  "typescript"
