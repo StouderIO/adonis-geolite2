@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/2575182/212580654-fdde40b5-418b-4b72-97b3-5a15a6328590.png" />
+  <img src="https://user-images.githubusercontent.com/2575182/236930626-40d7d2a8-2ded-4f72-a9e8-d8f4ce43ec79.png" />
   <h3>@stouder-io/adonis-geolite2</h3>
   <p>Maxmind's GeoLite2 integration for Adonis</p>
   <a href="https://www.npmjs.com/package/@stouder-io/adonis-geolite2">
