@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Maxmind's GeoLite2 integration for Adonis",
   "homepage": "https://github.com/Xstoudi/adonis-geolite2#readme",
-  "main": "build/providers/Geolite2Provider.js",
+  "main": "build/providers/GeoLite2Provider.js",
   "types": "build/adonis-typings/index.d.ts",
   "private": false,
   "publishConfig": {
