@@ -1,6 +1,6 @@
 {
   "name": "@stouder-io/adonis-geolite2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Maxmind's GeoLite2 integration for Adonis",
   "homepage": "https://github.com/Xstoudi/adonis-geolite2#readme",
   "main": "build/providers/Geolite2Provider.js",
