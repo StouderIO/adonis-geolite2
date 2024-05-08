@@ -1,35 +1,37 @@
 {
-  "name": "@stouder-io/adonis-geolite2",
-  "version": "1.0.2",
-  "description": "Maxmind's GeoLite2 integration for Adonis",
-  "homepage": "https://github.com/Xstoudi/adonis-geolite2#readme",
-  "main": "build/providers/Geolite2Provider.js",
-  "types": "build/adonis-typings/index.d.ts",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
+  "name": "boilerplate",
+  "description": "",
+  "version": "2.0.0",
+  "engines": {
+    "node": ">=20.6.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Xstoudi/adonis-geolite2.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Xstoudi/adonis-geolite2/issues"
+  "type": "module",
+  "files": [
+    "build/src",
+    "build/providers",
+    "build/stubs",
+    "build/index.d.ts",
+    "build/index.js"
+  ],
+  "exports": {
+    ".": "./build/index.js",
+    "./types": "./build/src/types.js"
   },
   "scripts": {
-    "mrm": "mrm --preset=@adonisjs/mrm-preset",
-    "pretest": "npm run lint",
-    "test": "node -r @adonisjs/require-ts/build/register bin/test.ts",
     "clean": "del-cli build",
-    "compile": "npm run lint && npm run clean && tsc",
-    "build": "npm run compile",
-    "prepublishOnly": "npm run build",
+    "copy:templates": "copyfiles \"stubs/**/*.stub\" build",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
-    "commit": "git-cz",
-    "release": "np --message=\"chore(release): %s\"",
+    "quick:test": "node --import=./tsnode.esm.js --enable-source-maps bin/test.ts",
+    "pretest": "npm run lint",
+    "test": "c8 npm run quick:test",
+    "prebuild": "npm run lint && npm run clean",
+    "build": "tsc",
+    "postbuild": "npm run copy:templates",
+    "release": "np",
     "version": "npm run build",
-    "sync-labels": "github-label-sync --labels ./node_modules/@adonisjs/mrm-preset/gh-labels.json Xstoudi/adonis-geolite2"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "adonisjs",
@@ -49,88 +51,67 @@
   "author": "Xavier Stouder <xavier@stouder.io>",
   "license": "MIT",
   "devDependencies": {
-    "@adonisjs/core": "^5.9.0",
-    "@adonisjs/mrm-preset": "^5.0.3",
-    "@adonisjs/require-ts": "^2.0.13",
-    "@types/node": "^18.11.18",
-    "commitizen": "^4.2.6",
-    "cz-conventional-changelog": "^3.3.0",
-    "del-cli": "^5.0.0",
-    "eslint": "^8.32.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-adonis": "^2.1.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "github-label-sync": "^2.2.0",
-    "husky": "^8.0.3",
-    "mrm": "^4.1.13",
-    "np": "^7.6.3",
-    "prettier": "^2.8.3",
-    "typescript": "^4.9.4"
+    "@adonisjs/assembler": "^7.2.3",
+    "@adonisjs/core": "^6.3.1",
+    "@adonisjs/eslint-config": "^1.3.0",
+    "@adonisjs/prettier-config": "^1.3.0",
+    "@adonisjs/tsconfig": "^1.3.0",
+    "@japa/assert": "^2.1.0",
+    "@japa/runner": "^3.1.1",
+    "@swc/core": "^1.4.6",
+    "@types/node": "^20.11.25",
+    "c8": "^9.1.0",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^5.1.0",
+    "eslint": "^8.57.0",
+    "np": "^10.0.0",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
   },
-  "mrmConfig": {
-    "core": false,
-    "license": "MIT",
-    "services": [
-      "github-actions"
-    ],
-    "minNodeVersion": "16.13.1",
-    "probotApps": [
-      "stale"
-    ],
-    "runGhActionsOnWindows": false
+  "peerDependencies": {
+    "@adonisjs/core": "^6.2.0"
   },
-  "files": [
-    "build/src",
-    "build/providers",
-    "build/adonis-typings"
-  ],
-  "eslintConfig": {
-    "extends": [
-      "plugin:adonis/typescriptPackage",
-      "prettier"
-    ],
-    "plugins": [
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "endOfLine": "auto"
-        }
-      ]
-    }
-  },
-  "eslintIgnore": [
-    "build"
-  ],
-  "prettier": {
-    "trailingComma": "es5",
-    "semi": false,
-    "singleQuote": true,
-    "useTabs": false,
-    "quoteProps": "consistent",
-    "bracketSpacing": true,
-    "arrowParens": "always",
-    "printWidth": 100
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
   },
   "np": {
-    "contents": ".",
+    "message": "chore(release): %s",
+    "tag": "latest",
+    "branch": "main",
     "anyBranch": false
   },
+  "c8": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "@adonisjs/eslint-config/package"
+  },
+  "prettier": "@adonisjs/prettier-config",
   "dependencies": {
     "geolite2-redist": "^3.0.4",
-    "maxmind": "^4.3.8"
+    "maxmind": "^4.3.19"
   },
-  "adonisjs": {
-    "types": "@stouder-io/adonis-geolite2",
-    "providers": [
-      "@stouder-io/adonis-geolite2"
-    ]
+  "tsup": {
+    "entry": [
+      "./index.ts",
+      "./providers/geolite2_provider.ts",
+      "./src/types.ts"
+    ],
+    "outDir": "./build",
+    "clean": true,
+    "format": "esm",
+    "dts": true,
+    "target": "esnext"
+  },
+  "volta": {
+    "node": "22.1.0"
   }
 }
