@@ -7,13 +7,12 @@
   },
   "type": "module",
   "files": [
-    "build",
-    "!build/bin",
-    "!build/tests"
+    "build"
   ],
   "exports": {
     ".": "./build/index.js",
-    "./types": "./build/src/types.js"
+    "./types": "./build/src/types.js",
+    "./geolite2_provider": "./build/providers/geolite2_provider.js"
   },
   "scripts": {
     "clean": "del-cli build",
