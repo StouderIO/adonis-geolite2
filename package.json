@@ -1,6 +1,6 @@
 {
-  "name": "boilerplate",
-  "description": "",
+  "name": "@stouder-io/adonis-geolite2",
+  "description": "Maxmind's GeoLite2 integration for Adonis",
   "version": "2.0.0",
   "engines": {
     "node": ">=20.6.0"
@@ -46,6 +46,14 @@
     "ip2asn"
   ],
   "author": "Xavier Stouder <xavier@stouder.io>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StouderIO/adonis-geolite2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StouderIO/adonis-geolite2/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "@adonisjs/assembler": "^7.2.3",
