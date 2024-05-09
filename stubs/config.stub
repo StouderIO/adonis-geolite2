@@ -4,5 +4,6 @@
 import { defineConfig } from '@stouder-io/adonis-geolite2'
 
 export default defineConfig({
-  downloadDir: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'dbs')
+  downloadDirectory: '../dbs',
+  cache: 6000
 })

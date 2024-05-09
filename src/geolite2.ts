@@ -1,5 +1,5 @@
-import { AllReaders, GeoLite2Contract } from './types.js'
-import { AsnResponse, CityResponse, CountryResponse } from 'maxmind'
+import type { AllReaders, GeoLite2Contract } from './types.js'
+import type { AsnResponse, CityResponse, CountryResponse } from 'maxmind'
 import { HttpContext } from '@adonisjs/core/http'
 
 declare module '@adonisjs/core/http' {

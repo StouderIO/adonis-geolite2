@@ -1,4 +1,4 @@
-import { type AsnResponse, type CityResponse, type CountryResponse, type Reader } from 'maxmind'
+import type { AsnResponse, CityResponse, CountryResponse, Reader } from 'maxmind'
 
 export type AllReaders = {
   country: Reader<CountryResponse>

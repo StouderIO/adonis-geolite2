@@ -1,5 +1,5 @@
 import * as geolite2 from 'geolite2-redist'
-import { type AllReaders, type GeoLite2Service, type ResolvedGeoLite2Config } from './types.js'
+import type { AllReaders, GeoLite2Service, ResolvedGeoLite2Config } from './types.js'
 import maxmind, { type CountryResponse, type CityResponse, type AsnResponse } from 'maxmind'
 import { GeoIpDbName } from 'geolite2-redist'
 
@@ -47,10 +47,6 @@ export default class GeoLite2Manager implements GeoLite2Service {
   }
 
   close() {
-    if (this.readers === null) {
-      return
-    }
-
     this.onClose()
   }
 

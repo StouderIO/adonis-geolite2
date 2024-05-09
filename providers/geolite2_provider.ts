@@ -8,7 +8,7 @@ import { RuntimeException } from '@poppinss/utils'
 
 declare module '@adonisjs/core/types' {
   export interface ContainerBindings {
-    'geolite2.manager': GeoLite2Service
+    geolite2: GeoLite2Service
   }
 }
 
@@ -16,13 +16,13 @@ export default class GeoLite2Provider {
   constructor(protected app: ApplicationService) {}
 
   register() {
-    this.app.container.singleton('geolite2.manager', async () => {
+    this.app.container.singleton('geolite2', async () => {
       const geolite2Config = this.app.config.get<GeoLite2Config>('geolite2')
       const config = await configProvider.resolve<ResolvedGeoLite2Config>(this.app, geolite2Config)
 
       if (!config) {
         throw new RuntimeException(
-          'Invalid config exported from "config/geolite2.ts" file. Make sure to use the defineConfig method'
+          'Invalid default export from "config/geolite2.ts" file. Make sure to use defineConfig method'
         )
       }
 
@@ -31,7 +31,7 @@ export default class GeoLite2Provider {
   }
 
   async boot() {
-    const manager = await this.app.container.make('geolite2.manager')
+    const manager = await this.app.container.make('geolite2')
     await manager.init()
 
     HttpContext.getter(
@@ -44,7 +44,7 @@ export default class GeoLite2Provider {
   }
 
   async shutdown() {
-    const manager = await this.app.container.make('geolite2.manager')
+    const manager = await this.app.container.make('geolite2')
     manager.close()
   }
 }
