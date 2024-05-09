@@ -13,12 +13,16 @@
 This package uses [geolite2-redist](https://www.npmjs.com/package/geolite2-redist) and thus, you MUST comply with it specifics conditions. For more informations please check their [npm page](https://www.npmjs.com/package/geolite2-redist#user-content-legal-warning).
 
 ## Installation
-This package is available in the npm registry.
+```
+node ace add @stouder-io/adonis-geolite2
+```
+
+Alternatively, you can install it manually.
 ```
 npm i @stouder-io/adonis-geolite2
 ```
 
-Next, configure the package by running the following command.
+If installed manually, you need to manually run the configuration command.
 ```
 node ace configure @stouder-io/adonis-geolite2
 ```
@@ -26,23 +30,23 @@ node ace configure @stouder-io/adonis-geolite2
 ## Usage
 The geolite2 is automatically attached to HTTP requests, allowing you to use it to retries informations about the geolocation of requesting IPs.
 ```ts
-Route.get('/', async ({ geolite2 }: HttpContextContract) => {
-    const country = geolite2.country()
-    const city = geolite2.city()
-    const asn = geolite2.asn()
+router.get('/', ({ geolite2 }: HttpContext) => {
+  const country = geolite2.country()
+  const city = geolite2.city()
+  const asn = geolite2.asn()
 
-    return { country, city, asn }
+  return { country, city, asn }
 })
 ```
 
 If no parameter is provided to the functions, it uses [`request.ip()`](https://docs.adonisjs.com/guides/request#request-ip-address). Alternatively you can pass the IP you want to lookup.
 
 ```ts
-Route.get('/', async ({ geolite2 }: HttpContextContract) => {
-    const country = geolite2.country('8.8.8.8')
-    const city = geolite2.city('8.8.8.8')
-    const asn = geolite2.asn('8.8.8.8')
+router.get('/', ({ geolite2 }: HttpContext) => {
+  const country = geolite2.country('8.8.8.8')
+  const city = geolite2.city('8.8.8.8')
+  const asn = geolite2.asn('8.8.8.8')
 
-    return { country, city, asn }
+  return { country, city, asn }
 })
 ```
