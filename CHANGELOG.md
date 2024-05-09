@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/StouderIO/adonis-geolite2/compare/v2.0.1...v2.0.2) (2024-05-09)
+
+
+### Bug Fixes
+
+* correctly import stub ([be3c45e](https://github.com/StouderIO/adonis-geolite2/commit/be3c45e89008b8ba19d62d744719698eadf023ba))
+
 ## [2.0.1](https://github.com/StouderIO/adonis-geolite2/compare/v2.0.0...v2.0.1) (2024-05-09)
 
 
