@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/StouderIO/adonis-geolite2/compare/v2.1.1...v2.1.2) (2024-05-09)
+
+
+### Bug Fixes
+
+* register provider ([34d61d1](https://github.com/StouderIO/adonis-geolite2/commit/34d61d13ed8d9e80cf9553aca1bfc3ba7690c82f))
+
 ## [2.1.1](https://github.com/StouderIO/adonis-geolite2/compare/v2.1.0...v2.1.1) (2024-05-09)
 
 
