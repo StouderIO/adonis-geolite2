@@ -54,7 +54,6 @@
   "bugs": {
     "url": "https://github.com/StouderIO/adonis-geolite2/issues"
   },
-  "license": "MIT",
   "devDependencies": {
     "@adonisjs/assembler": "^7.2.3",
     "@adonisjs/core": "^6.3.1",
