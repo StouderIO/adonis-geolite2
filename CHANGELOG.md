@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/StouderIO/adonis-geolite2/compare/v2.1.0...v2.1.1) (2024-05-09)
+
+
+### Bug Fixes
+
+* enable post script ([c047236](https://github.com/StouderIO/adonis-geolite2/commit/c047236ea74b2e4db04e67728d19e8065f4c1379))
+
 ## [2.1.0](https://github.com/StouderIO/adonis-geolite2/compare/v2.0.2...v2.1.0) (2024-05-09)
 
 
