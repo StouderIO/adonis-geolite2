@@ -72,6 +72,7 @@
     "np": "^10.0.0",
     "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
     "typescript": "5.3.3"
   },
   "peerDependencies": {
@@ -115,7 +116,7 @@
     "outDir": "./build",
     "clean": true,
     "format": "esm",
-    "dts": false,
+    "dts": true,
     "sourcemap": true,
     "target": "esnext"
   },
